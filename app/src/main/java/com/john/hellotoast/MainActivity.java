@@ -1,45 +1,80 @@
 package com.john.hellotoast;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
 {
-    private int mCount; //Store the number of counts
-    private TextView mShowCount; // Store a reference to the textView
+        private int mCount;
+        private TextView mShowCount;
+        private static final String LOG_TAG = MainActivity.class.getSimpleName();
+        public final static String MESSAGE = "com.john.hellotoast.MESSAGE";
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        @Override
+        protected void onCreate(Bundle savedInstanceState)
+        {
+                super.onCreate(savedInstanceState);
 
-        mShowCount = findViewById(R.id.show_count); // Find the element with its ID from the xml file, cast it to a TextView and store it in the mShowCount variable
-    }
+                setContentView(R.layout.activity_main);
 
-    public void showToast(View view)
-    {
-        Toast toast = Toast.makeText(this, R.string.toast_message, Toast.LENGTH_SHORT);
+                mShowCount = findViewById(R.id.show_count);
 
-        toast.show();
-    }
+                Log.d(LOG_TAG, "Second activity created!");
+        }
 
-    public void countUp(View view)
-    {
-        mCount++;
+        public void showToast(View view)
+        {
+                Toast toast = Toast.makeText(this, R.string.toast_message, Toast.LENGTH_SHORT);
 
-        if (mShowCount != null)
-            mShowCount.setText(String.valueOf(mCount)); // Assign the variable mCount to the mShowCount variable
-    }
+                toast.show();
+        }
 
-    public void countReset(View view)
-    {
-        mCount = 0;
+        public void countUp(View view)
+        {
+                mCount++;
 
-        if (mShowCount != null)
-            mShowCount.setText(String.valueOf(mCount)); // Assign the variable mCount to the mShowCount variable
-    }
+                if (mShowCount != null)
+                        mShowCount.setText(String.valueOf(mCount));
+        }
+
+        public void countReset(View view)
+        {
+                mCount = 0;
+
+                if (mShowCount != null)
+                        mShowCount.setText(String.valueOf(mCount));
+        }
+
+        public void showSecondActivity(View view)
+        {
+                Intent newActivity = new Intent(this, SecondActivity.class);
+
+                newActivity.putExtra(MESSAGE, "Hello, mister");
+
+                startActivityForResult(newActivity, 1);
+        }
+
+        public void onActivityResult(int requestCode, int resultCode, Intent data)
+        {
+                super.onActivityResult(requestCode, resultCode, data);
+
+                if (requestCode == 1)
+                {
+                        if (resultCode == RESULT_OK)
+                        {
+                                String reply = data.getStringExtra(SecondActivity.RETURN_MESSAGE);
+
+                                Log.d(LOG_TAG, reply);
+                        }
+                        else
+                        {
+                                Log.d(LOG_TAG, getString(R.string.no_response));
+                        }
+                }
+        }
 }

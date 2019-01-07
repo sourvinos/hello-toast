@@ -1,10 +1,20 @@
 <resources>
 
-    <string name="app_name">Hello Toast</string>
-    <string name="button_label_toast">Greet me!</string>
-    <string name="button_label_count">Count</string>
-    <string name="button_count_reset">Reset</string>
-    <string name="count_initial_value">0</string>
-    <string name="toast_message">Hello, John!</string>
+        //Globals
+        <string name="app_name">Hello with a Toast</string>
+
+        // First activity
+        <string name="button_label_toast"><b>Say Hello</b></string>
+        <string name="button_label_count">Count</string>
+        <string name="button_count_reset">Reset</string>
+        <string name="toast_message">Hello, John!</string>
+        <string name="count_initial_value">0</string>
+        <string name="second_activity">Next activity</string>
+
+        // Second activity
+        <string name="second_activity_text">This is the next activity!</string>
+        <string name="close_second_activity">Abort</string>
+        <string name="respond_to_the_first_activity">Respond</string>
+        <string name="no_response">The second activity sent no response!</string>
 
 </resources>
