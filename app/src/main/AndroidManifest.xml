@@ -18,10 +18,15 @@
                         </intent-filter>
                 </activity>
 
-                <activity android:name=".SecondActivity"
-                        android:label = "Second Activity"
-                        android:parentActivityName=".MainActivity">
-                </activity>
+                <activity
+                        android:name=".SecondActivity"
+                        android:label="Second Activity"
+                        android:parentActivityName=".MainActivity" />
+
+                <activity
+                        android:name=".ScrollActivity"
+                        android:label="Scrolling..."
+                        android:parentActivityName=".MainActivity" />
 
         </application>
 

@@ -1,1 +1,2 @@
 07/01/2019 Adds second activity, the main activity passes messages to it and receives responses.
+08/01/2019 Adds an activity with scrolling capabilities!

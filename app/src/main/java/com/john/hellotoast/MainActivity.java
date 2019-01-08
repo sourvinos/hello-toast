@@ -1,6 +1,7 @@
 package com.john.hellotoast;
 
 import android.content.Intent;
+import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -76,5 +77,12 @@ public class MainActivity extends AppCompatActivity
                                 Log.d(LOG_TAG, getString(R.string.no_response));
                         }
                 }
+        }
+
+        public void scrollActivity(View view)
+        {
+                Intent scrollActivity = new Intent(this, ScrollActivity.class);
+
+                startActivity(scrollActivity );
         }
 }
