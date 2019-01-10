@@ -4,7 +4,7 @@
         <string name="app_name">Hello Android!</string>
 
         // First activity
-        <string name="button_label_toast"><b>Greeting</b></string>
+        <string name="button_label_toast"><b>Say Hello</b></string>
         <string name="button_label_count">Count</string>
         <string name="button_count_reset">Reset</string>
         <string name="toast_message">Hello, John!</string>
